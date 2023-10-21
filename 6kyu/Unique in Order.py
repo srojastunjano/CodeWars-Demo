@@ -8,14 +8,12 @@
 # unique_in_order((1, 2, 2, 3, 3))   == [1, 2, 3]
 
 def unique_in_order(sequence):
-    filtered = []
-    string_position = 0
-    if len(sequence) == 0 or len(sequence)==1:
-        return sequence
-    while string_position+1 != len(sequence):
-        if sequence[string_position] == sequence[string_position+1]:
+    unique_sequence = []
+    if len(sequence) != 0:
+        string_position = 0
+        unique_sequence = [sequence[0]]
+        for char in sequence[1:]:
+            if sequence[string_position] != char:
+                unique_sequence.append(char)
             string_position += 1
-        else:
-            filtered.append(string_position)
-    filtered.append(sequence[0])
-    return filtered
+    return unique_sequence
